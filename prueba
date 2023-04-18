@@ -1,0 +1,111 @@
+package poo;
+
+public class Coche {
+
+    private String marca;
+    private String modelo;
+    private String color;
+    private String matricula;
+    private String nombreCliente;
+    private boolean vendido;
+
+    public Coche(String marca, String modelo, String color, String matricula, String nombreCliente, boolean vendido) {
+
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+        this.matricula = matricula;
+        this.nombreCliente = nombreCliente;
+        this.vendido = vendido;
+
+    }
+
+    public String dimeLaMarca() {
+        return marca;
+    }
+
+    public String dimeElModelo() {
+        return modelo;
+    }
+
+    public String dimeElColor() {
+        return color;
+    }
+
+    public String dimeLaMatricula() {
+        return matricula;
+    }
+
+    public String dimeElNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public boolean isVendido() {
+        return vendido;
+    }
+
+    public void setVendido(boolean vendido) {
+        this.vendido = vendido;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+package poo;
+
+import java.util.ArrayList;
+
+public class Concessionario{
+
+    public static void main(String[] args) {
+    }
+
+    private ArrayList<Coche> listadoCoche;
+
+    public Concessionario() {
+        listadoCoche = new ArrayList<>();
+
+        listadoCoche.add(new Coche("Opel", "Astra", "azul", "3472DTT", "Filippo Soprano", true));
+        listadoCoche.add(new Coche("Seat", "Ibiza", "Rojo", "5478FGT", "Raul Gómez", true));
+        listadoCoche.add(new Coche("Renault", "Megane", "Blanco", "8712HSA", "", false));
+        listadoCoche.add(new Coche("Citroen", "C4", "Gris", "1265RNE", "", false));
+    }
+
+    public void consultaListadoCoche() {
+        System.out.println("Listado coches a la venta");
+        for (Coche a : listadoCoche) {
+            if (!a.isVendido()) {
+                System.out.println("Marca" + a.dimeLaMarca());
+                System.out.println("Modelo" + a.dimeElModelo());
+                System.out.println("Color" + a.dimeElColor());
+                System.out.println("Matricula" + a.dimeLaMatricula());
+            }
+            if (a.dimeElNombreCliente().equals("")) {
+                System.out.println("Disponible para la venta");
+            } else {
+                System.out.println("Nombre del cliente" + a.dimeElNombreCliente());
+            }
+        }
+    }
+}
